@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+<h1>Admin Dashboard</h1>
+
+<div class="panel">
+
+<h2>Tambah Menu</h2>
+
+<input type="text" id="menuName" placeholder="Nama Menu">
+
+
+<input type="number" id="menuPrice" placeholder="Harga">
+<select id="menuCategory">
+    <option value="Kek">Kek</option>
+    <option value="Puding">Puding</option>
+    <option value="Kuih">Kuih</option>
+    <option value="Sejuk">Sejuk</option>
+</select>
+
+<input
+type="file"
+id="menuImage"
+accept="image/*">
+
+<textarea
+id="menuDesc"
+placeholder="Description Menu">
+</textarea>
+
+<button id="addMenuBtn">
+Tambah Menu
+</button>
+
+</div>
+
+<br>
+
+<div class="panel">
+
+<h2>Senarai Menu</h2>
+
+<div id="menuList"></div>
+
+</div>
+
+<br>
+
+<div class="panel">
+
+<h2>Semua Tempahan</h2>
+
+<div id="orderList"></div>
+
+</div>
+
+</div>
+
+<script src="admin.js"></script>
+
+</body>
+</html>

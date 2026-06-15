@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ms">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ManisHub | Tempahan Pencuci Mulut</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">MH</span>
+          <div>
+            <h1>ManisHub</h1>
+            <p>Tempahan pencuci mulut</p>
+          </div>
+        </div>
+       <div style="display:flex;gap:10px;align-items:center;">
+    <div class="session-pill" id="sessionPill">
+        Belum log masuk
+    </div>
+
+  <button onclick="window.location.href='admin.html'">
+        Admin Login
+    </button>
+</div>
+      </header>
+
+      <main class="workspace">
+        <section class="panel account-panel" aria-labelledby="accountTitle">
+          <div class="panel-heading">
+            <div>
+              <span class="eyebrow">Akaun</span>
+              <h2 id="accountTitle">Pengguna</h2>
+            </div>
+          </div>
+
+          <div id="authView">
+            <div class="segmented" role="tablist" aria-label="Pilihan akaun">
+              <button class="segment is-active" type="button" data-auth-tab="login">Log masuk</button>
+              <button class="segment" type="button" data-auth-tab="register">Daftar</button>
+            </div>
+
+            <form class="form-stack" id="loginForm" autocomplete="on">
+              <label>
+                E-mel
+                <input id="loginEmail" type="email" autocomplete="email" required />
+              </label>
+              <label>
+                Kata laluan
+                <input id="loginPassword" type="password" autocomplete="current-password" required />
+              </label>
+              <button class="primary-button" type="submit">Log Masuk</button>
+            </form>
+
+            <form class="form-stack is-hidden" id="registerForm" autocomplete="on">
+              <label>
+                Nama
+                <input id="registerName" type="text" autocomplete="name" required />
+              </label>
+              <label>
+                Telefon
+                <input id="registerPhone" type="tel" autocomplete="tel" required />
+              </label>
+              <label>
+                E-mel
+                <input id="registerEmail" type="email" autocomplete="email" required />
+              </label>
+              <label>
+                Kata laluan
+                <input id="registerPassword" type="password" autocomplete="new-password" minlength="6" required />
+              </label>
+              <button class="primary-button" type="submit">Bina Akaun</button>
+            </form>
+          </div>
+
+          <div class="profile-card is-hidden" id="profileView">
+            <div class="avatar" id="profileAvatar" aria-hidden="true">P</div>
+            <div class="profile-copy">
+              <strong id="profileName">Pengguna</strong>
+              <span id="profileEmail">-</span>
+              <span id="profilePhone">-</span>
+            </div>
+            <button class="ghost-button" id="logoutButton" type="button">Keluar</button>
+          </div>
+        </section>
+
+        <section class="menu-section" aria-labelledby="menuTitle">
+          <div class="menu-toolbar">
+            <div>
+              <span class="eyebrow">Menu</span>
+              <h2 id="menuTitle">Pencuci Mulut</h2>
+            </div>
+            <label class="search-box">
+              <span>Cari</span>
+              <input id="searchInput" type="search" placeholder="Kek, puding, macaron" />
+            </label>
+          </div>
+          <div class="category-tabs" id="categoryTabs" aria-label="Kategori menu"></div>
+          <div class="menu-grid" id="menuGrid"></div>
+        </section>
+
+        <aside class="panel order-panel" aria-labelledby="orderTitle">
+          <div class="panel-heading">
+            <div>
+              <span class="eyebrow">Bakul</span>
+              <h2 id="orderTitle">Tempahan</h2>
+            </div>
+            <span class="item-count" id="cartCount">0 item</span>
+          </div>
+
+          <div class="cart-list" id="cartList"></div>
+
+          <div class="totals">
+            <div>
+              <span>Subjumlah</span>
+              <strong id="subtotalText">RM0.00</strong>
+            </div>
+            <div>
+              <span>Penghantaran</span>
+              <strong id="deliveryText">RM0.00</strong>
+            </div>
+            <div class="grand-total">
+              <span>Jumlah</span>
+              <strong id="totalText">RM0.00</strong>
+            </div>
+          </div>
+
+          <form class="checkout-form" id="checkoutForm">
+            <div class="field-row">
+              <label>
+                Tarikh
+                <input id="orderDate" type="date" required />
+              </label>
+              <label>
+                Masa
+                <select id="orderTime" required>
+                  <option value="10:00">10:00 pagi</option>
+                  <option value="12:00">12:00 tengah hari</option>
+                  <option value="15:00">3:00 petang</option>
+                  <option value="18:00">6:00 petang</option>
+                </select>
+              </label>
+            </div>
+            <label>
+              Kaedah
+              <select id="fulfillment">
+                <option value="pickup">Ambil sendiri</option>
+                <option value="delivery">Penghantaran</option>
+              </select>
+            </label>
+            <label id="addressLabel" class="is-hidden">
+              Alamat
+              <textarea id="deliveryAddress" rows="3"></textarea>
+            </label>
+            <label>
+              Nota
+              <textarea id="orderNote" rows="2" placeholder="Lilin, kurang manis, ucapan ringkas"></textarea>
+            </label>
+
+<h3>Pembayaran DuitNow</h3>
+
+<p>Sila scan QR di bawah dan upload bukti pembayaran.</p>
+
+<img
+src="assets/qrcode.jpg"
+alt="QR Payment"
+style="
+width:250px;
+display:block;
+margin:10px auto;
+border:1px solid #ddd;
+border-radius:8px;
+padding:10px;
+background:white;
+">
+
+<label>
+Upload Bukti Pembayaran
+
+<input
+type="file"
+id="paymentProof"
+accept="image/*"
+required>
+
+</label>
+
+            <button class="primary-button" type="submit">Hantar Tempahan</button>
+          </form>
+          
+
+          <div class="history-section">
+            <div class="history-heading">
+              <span class="eyebrow">Rekod</span>
+              <h3>Pesanan Saya</h3>
+            </div>
+            <div id="orderHistory" class="history-list"></div>
+          </div>
+        </aside>
+      </main>
+    </div>
+<div id="adminDashboard" class="panel is-hidden">
+    <h2>Admin Dashboard</h2>
+
+    <h3>Tambah Menu</h3>
+
+    <input type="text" id="newMenuName" placeholder="Nama Menu">
+    <input type="number" id="newMenuPrice" placeholder="Harga">
+    <button id="addMenuBtn">Tambah Menu</button>
+
+    <hr>
+
+    <h3>Senarai Menu</h3>
+    <div id="adminMenuList"></div>
+
+    <hr>
+
+    <h3>Semua Tempahan</h3>
+    <div id="allOrders"></div>
+</div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js" defer></script>
+  </body>
+</html>
