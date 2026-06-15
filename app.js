@@ -4,7 +4,7 @@ let MENU = [
     name: "Kek Coklat Fudge",
     category: "Kek",
     price: 38,
-    image: "assets/chocolate-fudge.png",
+    image: "chocolate-fudge.png",
     tag: "Terlaris",
     desc: "Kek lembap dengan ganache coklat pekat."
   },
